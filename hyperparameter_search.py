@@ -79,7 +79,7 @@ while not flag:
         # 单次计算，显示大概的权重
         best_param, cv_results_ = auto_find_best_params(VariationalLogisticRegression(), params, Xtrain, Ytrain)
         vlr = VariationalLogisticRegression(**best_param)
-        vlr.fit(Xtrain, Ytrain)
+        vlr.fit(Xtrain, Ytrain, feature_names)
         _score = vlr.score(Xtest, Ytest)
         print("score is", _score, best_param)
         if _score >= 0.89:

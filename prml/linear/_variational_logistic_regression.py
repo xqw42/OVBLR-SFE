@@ -84,6 +84,9 @@ class VariationalLogisticRegression(LogisticRegression, BaseEstimator):
         iter_max : int, optional
             maximum number of iteration (the default is 1000)
         """
+        if not feature_names:
+            print("feature_names is None")
+
         self.classes_ = np.unique(t)
 
         n, d = x_train.shape
@@ -134,7 +137,7 @@ class VariationalLogisticRegression(LogisticRegression, BaseEstimator):
                        for i in index]
                 print("all positive", len(map), map)
                 self.mapping = map
-            except:
+            except Exception as e:
                 pass
 
     # @property
@@ -151,6 +154,8 @@ class VariationalLogisticRegression(LogisticRegression, BaseEstimator):
     #     except AttributeError:
     #         self.b = self.b0
     #     return self.a / self.b
+    def feature_importance_sequence(self):
+        return self.mapping
 
     def proba(self, x: np.ndarray):
         """Return probability of input belonging class 1.
