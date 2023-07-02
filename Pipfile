@@ -1,0 +1,33 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pip = "*"
+sklearn = "*"
+ipykernel = {version = "*", index = "https://pypi.douban.com/simple"}
+ffmpeg = "*"
+matplotlib = "*"
+scikit-learn = "*"
+pandas = "*"
+numpy = "*"
+imblearn = "*"
+seaborn = "*"
+openpyxl = "*"
+polling = "*"
+socks = "*"
+lime = "*"
+shap = "*"
+eli5 = "*"
+ipython = "*"
+jupyter = "*"
+mglearn = "*"
+self-paced-ensemble = "*"
+tabulate = "*"
+pymoo = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"

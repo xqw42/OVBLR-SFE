@@ -65,10 +65,18 @@ docs/_build/
 
 # PyBuilder
 target/
-
-# IPython Notebook
+data/
+build/
+dist/
+prml.egg-info/
 .ipynb_checkpoints
-
+other_alg_result_all_fields_scaler_with_revised_2.json
+other_alg_result_all_fields_scaler_with_revised_1.json
+other_alg_result_all_fields_scaler.json
+# IPython Notebook
+images/LT_no_scaler
+images/LT_scaler
+.idea
 # pyenv
 .python-version
 
