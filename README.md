@@ -46,10 +46,12 @@ and [scikit-learn](https://scikit-learn.org/stable/index.html).
   tabulate = "*"
   pymoo = "*"
   ```
-
+# Install
+```python
+    python setup.py install
+```
 
 # Usage
-
 1. Import the OVBLR-SFE module
 
 ```python
