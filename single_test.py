@@ -119,20 +119,20 @@ while flag:
         disp = ConfusionMatrixDisplay(confusion_matrix=c, display_labels=matrix_label)
         disp.plot()
         plt.show()
-        disp.figure_.savefig(f"{image_path}/confusion_matrix.png", dpi=600)
+        # disp.figure_.savefig(f"{image_path}/confusion_matrix.png", dpi=600)
 
         shap.initjs()
-        explainer = shap.Explainer(vlr, Xtest, feature_names=feature_names)
+        explainer = shap.Explainer(vlr.predict, Xtest, feature_names=feature_names)
         shap_values = explainer(Xtest)
 
         # shap.plots.bar(shap_values[0], max_display=30)
         plt.figure()
         shap.summary_plot(shap_values, Xtest, plot_type="bar", show=False)
-        plt.savefig(f"{image_path}/plot_bar.png", dpi=600)
+        # plt.savefig(f"{image_path}/plot_bar.png", dpi=600)
 
         plt.figure()
         shap.plots.beeswarm(shap_values, max_display=15, show=False)
-        plt.savefig(f"{image_path}/beeswarm.png", dpi=600)
+        # plt.savefig(f"{image_path}/beeswarm.png", dpi=600)
 
         # plt.figure()
         # shap.plots.waterfall(shap_values[1], max_display=30)
