@@ -96,7 +96,7 @@ flag = True
 while flag:
     image_path, Xtrain, Xtest, Ytrain, Ytest, feature_names = create_toy_data(is_breast=True)
 
-    vlr = VariationalLogisticRegression(**{'a0': 1, 'b0': 140})
+    vlr = VariationalLogisticRegression()
     vlr.fit(Xtrain, Ytrain, feature_names)
     print(vlr.feature_importance())
     y_pred_prob = vlr.proba(Xtest)
