@@ -69,7 +69,17 @@ and [scikit-learn](https://scikit-learn.org/stable/index.html).
 
 4. Obtain feature importance scores:
 ```python
-    importance_scores = vlr.mapping
+    importance_scores = vlr.feature_importance()
+    
+    --------------------------
+    (feature_name, weight, lower, upper, is_salient_feature)
+    ('Clump_Thickness', '1.8119 ± 0.2059', Decimal('1.4083'), Decimal('2.2155'), True) 
+    ('Uniformity_of_Cell_Shape', '1.4699 ± 0.3694', Decimal('0.7459'), Decimal('2.1939'), True) 
+    ('Bare_Nuclei', '1.2416 ± 0.2241', Decimal('0.8024'), Decimal('1.6808'), True) 
+    ('Bias term', '-1.1048 ± 0.148', Decimal('-1.3949'), Decimal('-0.8147'), True) 
+    ('Bland_Chromatin', '1.053 ± 0.2445', Decimal('0.5738'), Decimal('1.5322'), True) 
+    ('Mitoses', '0.9515 ± 0.2056', Decimal('0.5485'), Decimal('1.3545'), True) 
+    ......
 ```
 
 5. Prediction using trained models:

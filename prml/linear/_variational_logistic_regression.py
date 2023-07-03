@@ -1,10 +1,10 @@
 import typing as tp
+from decimal import Decimal, ROUND_HALF_UP
 
 import numpy as np
 
 from sklearn.base import BaseEstimator
 from sklearn.metrics import accuracy_score
-from sklearn.linear_model import LogisticRegression
 
 from prml.linear._logistic_regression import LogisticRegression
 
@@ -154,8 +154,23 @@ class VariationalLogisticRegression(LogisticRegression, BaseEstimator):
     #     except AttributeError:
     #         self.b = self.b0
     #     return self.a / self.b
-    def feature_importance_sequence(self):
-        return self.mapping
+    def feature_importance(self):
+        """
+        return
+        """
+        if not len(self.mapping):
+            raise Exception("feature importance is None !")
+
+        result = list()
+        for item in self.mapping:
+            name, _index, mean_std = item
+            mean, std = mean_std.split("±")
+            lower, upper = float(mean) - 1.96 * float(std), float(mean) + 1.96 * float(std)
+            lower, upper = Decimal(lower).quantize(Decimal('0.0000'), rounding=ROUND_HALF_UP), Decimal(upper).quantize(
+                        Decimal('0.0000'), rounding=ROUND_HALF_UP)
+
+            result.append((name, mean_std, lower, upper, False if lower * upper < 0 else True))
+        return result
 
     def proba(self, x: np.ndarray):
         """Return probability of input belonging class 1.
